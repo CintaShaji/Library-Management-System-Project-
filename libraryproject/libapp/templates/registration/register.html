@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://i.pinimg.com/originals/ef/b0/d4/efb0d4e1bf7c7087f58f082eae5d4f27.png'); /* Background image URL */
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+            font-size: 14px; /* Smaller font size */
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 14px; /* Smaller font size */
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px; /* Smaller font size */
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Student Registration</h2>
+        <form method="post">
+            {% csrf_token %}
+
+            <label for="id_username">Username</label>
+            {{ user_form.username }}
+
+            <label for="id_first_name">First Name</label>
+            {{ user_form.first_name }}
+
+            <label for="id_last_name">Last Name</label>
+            {{ user_form.last_name }}
+
+            <label for="id_email">Email</label>
+            {{ user_form.email }}
+
+            <label for="id_phone_no">Phone Number</label>
+            {{ student_form.phone_no }}
+
+            <label for="id_department">Department</label>
+            {{ student_form.department }}
+
+            <label for="id_roll_number">Roll Number</label>
+            {{ student_form.roll_number }}
+
+            <label for="id_registered_id">Registered ID</label>
+            {{ student_form.registered_id }}
+
+            <label for="id_college_name">College Name</label>
+            {{ student_form.college_name }}
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>
+
+
+

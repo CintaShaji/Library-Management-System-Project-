@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2; /* Light gray background */
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            height: 100vh; /* Full viewport height */
+            margin: 0; /* Remove default margin */
+        }
+        form {
+            background-color: #fff; /* White form background */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+        }
+        h1 {
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff; /* Blue button color */
+            color: #fff; /* White text color */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+
+<body>
+
+    <form method="post">
+        {% csrf_token %}
+        <h1>Edit Your Profile</h1>
+        {{ user_form.as_p }}
+        {{ student_form.as_p }}
+        <button type="submit">Save Changes</button>
+    </form>
+</body>
+</html>
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Requested Books</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Requested Books</h1>
+    <table>
+        <tr>
+            <th>Username</th>
+            <th>Department</th>
+            <th>Phone No</th>
+            <th>Book Name</th>
+            <th>Book Image</th>
+            <th>Author</th>
+            <th>Requested Date</th>
+            <th>Action</th>
+        </tr>
+           {% for request in requested_books %}
+<tr>
+    <td>{{ request.user.username }}</td>
+    <td>{{ request.user.student.department }}</td>
+    <td>{{ request.user.student.phone_no }}</td>
+    <td>{{ request.book.book_name }}</td>
+    <td><img src="{{ request.book.book_image.url }}" alt="{{ request.book.book_name }}" style="width: 50px; height: 50px;"></td>
+    <td>{{ request.book.author }}</td>
+    <td>{{ request.request_date }}</td>
+    <td>
+        <form action="{% url 'accept_book_request' pk=request.pk %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Accept Request</button>
+        </form>
+    </td>
+</tr>
+{% empty %}
+<tr>
+    <td colspan="8">No books requested yet.</td>
+</tr>
+{% endfor %}
+
+    </table>
+</body>
+</html>
+
+
+
+
+
+

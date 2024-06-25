@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://acerforeducation.acer.com/wp-content/uploads/2020/11/Digital-Libraries-BL-banner.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+            margin: 20px auto; /* Center the form horizontally */
+            text-align: center; /* Center align content within container */
+        }
+
+        /* Heading styles */
+        h1 {
+            margin-bottom: 20px;
+            color: #333; /* Dark gray heading color */
+        }
+
+        /* Form and content styles */
+        form {
+            padding: 20px;
+        }
+
+        p {
+            margin-bottom: 10px;
+            color: #555; /* Gray text color */
+        }
+
+        /* Button styles */
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff; /* Blue button color */
+            color: #fff; /* White text color */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-right: 10px; /* Adjust spacing between buttons */
+            margin-bottom: 10px; /* Adjust vertical spacing between buttons */
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        /* Link styles */
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Profile</h1>
+        <form method="post">
+            {% csrf_token %}
+            <p><strong>First Name:</strong> {{ user.first_name }}</p>
+            <p><strong>Last Name:</strong> {{ user.last_name }}</p>
+            <p><strong>Registration ID:</strong> {{ user.student.registered_id }}</p>
+            <p><strong>Phone Number:</strong> {{ user.student.phone_no }}</p>
+            <p><strong>Username:</strong> {{ user.username }}</p>
+            <p><strong>Department:</strong> {{ user.student.get_department_display }}</p>
+            <p><strong>College:</strong> {{ user.student.college_name }}</p>
+
+            <!-- Button container for alignment -->
+            <div class="button-container">
+                <a href="{% url 'edit_profile' %}"><button type="button">Edit Profile</button></a>
+                <a href="{% url 'view_books' %}"><button type="button">View Books</button></a>
+                <br><br>
+                <a href=""><button type="button">Borrowed Books Info</button></a>
+                <a href=""><button type="button">Borrowed History</button></a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+
+
+

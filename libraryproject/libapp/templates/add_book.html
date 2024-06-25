@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Book</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://tse3.mm.bing.net/th?id=OIP.atqLDUep3cMzJaz4POYNqgHaE6&pid=Api&P=0&h=180');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333; /* Dark gray heading color */
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555; /* Gray text color */
+            text-align: left;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff; /* Blue button color */
+            color: #fff; /* White text color */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add Book</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="book_name">Book Name:</label>
+            <input type="text" id="book_name" name="book_name" required><br>
+
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="author" required><br>
+
+            <label for="book_id">Book ID:</label>
+            <input type="text" id="book_id" name="book_id" required><br>
+
+            <label for="description">Description:</label><br>
+            <textarea id="description" name="description" rows="4" cols="50" required></textarea><br>
+
+            <label for="book_image">Book Image:</label>
+            <input type="file" id="book_image" name="book_image"><br><br>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

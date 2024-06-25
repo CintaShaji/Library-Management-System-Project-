@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Accept Book Request</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Book Request Accepted</h1>
+    <p>The book request has been successfully accepted.</p>
+
+    <h2>Accepted Details</h2>
+    <table>
+        <tr>
+            <th>Username</th>
+            <th>Department</th>
+            <th>Phone</th>
+            <th>Book Name</th>
+            <th>Book Image</th>
+            <th>Author</th>
+            <th>Requested Date</th>
+            <th>Accepted Date</th>
+            <th>Return Date</th>
+            <th>Fine</th>
+        </tr>
+        <tr>
+            <td>{{ details.user.username }}</td>
+            <td>{{ details.user.student.department }}</td>
+            <td>{{ details.user.student.phone_no }}</td>
+            <td>{{ details.book.book_name }}</td>
+            <td><img src="{{ details.book.book_image.url }}" alt="{{ details.book.book_name }}" style="width: 50px; height: 50px;"></td>
+            <td>{{ details.book.author }}</td>
+            <td>{{ details.request_date }}</td>
+            <td>{{ accepted_date }}</td>
+            <td>{{ return_date }}</td>
+            <td>{{ fine }}</td>
+        </tr>
+    </table>
+
+    <a href="{% url 'requested_books' %}">Back to Requested Books</a>
+</body>
+</html>

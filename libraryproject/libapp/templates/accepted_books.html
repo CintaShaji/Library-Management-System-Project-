@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Accepted Books</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Accepted Books</h1>
+    <table>
+        <tr>
+            <th>Username</th>
+            <th>Department</th>
+            <th>Phone No</th>
+            <th>Book Name</th>
+            <th>Book Image</th>
+            <th>Author</th>
+            <th>Requested Date</th>
+            <th>Accepted Date</th>
+            <th>Return Date</th>
+            <th>Fine</th>
+        </tr>
+        {% for accepted_book in accepted_books %}
+        <tr>
+            <td>{{ accepted_book.details.user.username }}</td>
+            <td>{{ accepted_book.details.user.student.department }}</td>
+            <td>{{ accepted_book.details.user.student.phone_no }}</td>
+            <td>{{ accepted_book.details.book.book_name }}</td>
+            <td><img src="{{ accepted_book.details.book.book_image.url }}" alt="{{ accepted_book.details.book.book_name }}" style="width: 50px; height: 50px;"></td>
+            <td>{{ accepted_book.details.book.author }}</td>
+            <td>{{ accepted_book.details.request_date }}</td>
+            <td>{{ accepted_book.accepted_date }}</td>
+            <td>{{ accepted_book.return_date }}</td>
+            <td>{{ accepted_book.fine }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="10">No accepted books yet.</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+

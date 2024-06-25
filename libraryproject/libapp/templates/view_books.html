@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Books</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        button {
+            padding: 5px 10px;
+            font-size: 14px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>View Books</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Book Image</th>
+                <th>Book Name</th>
+                <th>Author</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+                <tr>
+                    <td><img src="{{ book.book_image.url }}" alt="{{ book.book_name }}" width="100" height="150"></td>
+                    <td>{{ book.book_name }}</td>
+                    <td>{{ book.author }}</td>
+                    <td><a href="{% url 'book_detail' book.id %}"><button>View Details</button></a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+
+
+

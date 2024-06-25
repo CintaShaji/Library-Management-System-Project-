@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Library Management System</title>
+    <style>
+        /* Style for the navigation bar */
+        .navbar {
+            overflow: hidden;
+            background-color: #333; /* Dark background color */
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        /* Change color on hover */
+        .navbar a:hover {
+            background-color: #ddd; /* Light background color */
+            color: black;
+        }
+
+        /* Style for the content section */
+        .content {
+            padding: 20px;
+            text-align: center;
+            background-image: url('https://wallpaperaccess.com/full/892736.jpg'); /* Background image URL */
+            background-size: cover;
+            background-position: center;
+            height: 100vh; /* Set the height to fill the viewport */
+        }
+
+        /* Style for the heading and paragraph */
+        h1, p {
+            color: white; /* Text color */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Text shadow for better readability */
+        }
+
+        /* Style for the right-aligned buttons */
+        .navbar .right-buttons {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="right-buttons">
+        <a href="{% url 'user_register' %}">Register</a>
+        <a href="{% url 'student_login' %}">Login</a>
+    </div>
+</div>
+
+<div class="content">
+    <h1>Welcome to My Library Management System</h1><br><br>
+    <p>This is a platform to manage your library resources efficiently.</p>
+</div>
+
+</body>
+</html>
+

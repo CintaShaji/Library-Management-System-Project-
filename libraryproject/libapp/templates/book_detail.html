@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ book.book_name }} Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            margin-bottom: 10px;
+        }
+        img {
+            margin-bottom: 20px;
+            max-width: 100%;
+            height: auto;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ book.book_name }}</h1>
+    <img src="{{ book.book_image.url }}" alt="{{ book.book_name }}">
+    <p><strong>Author:</strong> {{ book.author }}</p>
+    <p><strong>Description:</strong> {{ book.description }}</p>
+    <p><strong>Available Copies:</strong> {{ book.available_copies }}</p>
+    <a href="{% url 'create_request' pk=book.id %}"><button>Request</button></a>
+
+
+
+</body>
+</html>
